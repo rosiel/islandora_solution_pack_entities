@@ -200,9 +200,9 @@ function islandora_entities_add_affiliation($dom, $scholar) {
   $affiliation_parts = array(
     'POSITION',
     'DEPARTMENT',
+    'EMAIL',
   );
   $address_parts = array(
-    'EMAIL',
     'PHONE',
     'FAX',
     'STREET',
@@ -233,6 +233,9 @@ function islandora_entities_add_affiliation($dom, $scholar) {
   }
   if (isset($affiliations['POSITION'])) {
     islandora_entities_attach_element($dom, "position", $affiliation, $affiliations['POSITION']);
+  }
+  if (isset($affiliations['EMAIL'])) {
+    islandora_entities_attach_element($dom, "email", $affiliation, $affiliations['EMAIL']);
   }
   if (count($address) > 0) {
     $address = islandora_entities_attach_element($dom, "address", $affiliation);
